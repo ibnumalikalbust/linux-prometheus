@@ -1,0 +1,18 @@
+[Unit]
+Description=Prometheus
+Documentation=https://prometheus.io/docs/introduction/overview/
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=habibullah
+Group=habibullah
+Type=simple
+ExecStart=/home/habibullah/prometheus/app/prometheus \
+--config.file /home/habibullah/prometheus/config/prometheus.yml \
+--storage.tsdb.path /home/habibullah/prometheus/database \
+--web.console.templates=/home/habibullah/prometheus/consoles \
+--web.console.libraries=/home/habibullah/prometheus/console.libraries
+
+[Install]
+WantedBy=multi-user.target

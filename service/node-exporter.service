@@ -1,0 +1,13 @@
+[Unit]
+Description=NODE Exporter For Prometheus
+
+[Service]
+Restart=always
+User=habibullah
+ExecStart=/home/habibullah/prometheus/app/node-exporter
+ExecReload=/bin/kill -HUP $MAINPID
+TimeoutStopSec=20s
+SendSIGKILL=no
+
+[Install]
+WantedBy=multi-user.target
